@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rank anything using a round-robin tournament system.">
+    
+    <title>Round-Robin Ranker | Rank Anything Fairly</title>
+
+    <link rel="icon" href="/favicon.ico">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="src/styles.css">
+
+    <script src="https://kit.fontawesome.com/2d792f3032.js" crossorigin="anonymous" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Round-Robin Ranker</h1>
+    </header>
+
+    <main>
+        <p>This is a sample web page created to demonstrate a basic HTML structure.</p>
+        <div class="pageContent" class="draw pageContent">
+            <div id="playArea" class="draw playArea">
+                <button onclick="startTournament()">Start</button>
+            </div>
+            <div id="infoArea" class="infoArea">
+                <div id="info-1" class="draw info-1">
+                    <div class="buttonContainer">
+                        <button>Table</button>
+                        <button>Notes</button>
+                    </div>
+                </div>
+                <div id="info-2" class="draw info-2">
+                    <form id="addContent">
+                        <fieldset id="formFields">
+                            <input name="itemInput" placeholder="Enter item to rank" required>
+                            <input type="submit" value="Submit">
+                        </fieldset>
+                    </form>
+                    <template id="itemTemplate">
+                        <div class="item">
+                            <span class="itemName"></span>
+                        </div>
+                    </template>
+                    <ul id="itemList"></ul>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Lance Sebastian. All rights reserved.</p>
+    </footer>
+
+    <script src="src/scripts/roundRobin.js" defer></script>
+
+</body>
+</html>
