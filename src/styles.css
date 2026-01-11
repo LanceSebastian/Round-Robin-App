@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    line-height: 60px;
+}
+
+.playArea {
+    width: 700px;
+    height: 700px;
+    background-color: #f9f9f9;
+}
+
+.infoArea {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 700px;
+}
+
+.info-1 {
+    width: 300px;
+    height: 300px;
+}
+
+.info-2 {
+    width: 300px;
+    height: 350px;
+}
+
+.pageContent {
+    margin: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+.draw {
+    outline: black solid;
+}
