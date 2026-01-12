@@ -27,7 +27,12 @@
         <p>This is a sample web page created to demonstrate a basic HTML structure.</p>
         <div class="pageContent" class="draw pageContent">
             <div id="playArea" class="draw playArea">
-                <button onclick="startTournament()">Start</button>
+                <button onclick="setUp()">Start</button>
+                <ul id="matchList">
+                    <!-- Matches will be dynamically added here -->
+                </ul>
+                <div class="nav-button-play" onclick="decrementMatch()"><i class="fa-solid fa-arrow-left"></i></div>
+                <div class="nav-button-play" onclick="incrementMatch()"><i class="fa-solid fa-arrow-right"></i></div>
             </div>
             <div id="infoArea" class="infoArea">
                 <div id="info-1" class="draw info-1">
