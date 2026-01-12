@@ -1,17 +1,18 @@
+
 const form = document.getElementById("addContent");
 const items = [];
 
 form.addEventListener("submit", function(event) {
     event.preventDefault();
-
+    
     const formData = new FormData(form);
-
+    
     const item = formData.get("itemInput");
     items.push(item);
     addItem(item);
     
     form.reset();
-
+    
     console.log(items);
 })
 
@@ -22,32 +23,82 @@ function addItem(text) {
     const clone = template.content.cloneNode(true);
     
     clone.querySelector(".itemName").textContent = text;
-
+    
     itemList.appendChild(clone);
+    
+}
 
+const gameState = {
+    matchIndex: 0,
+    matches: [],
+    phase: "setup" // can be "setup", "playing", "finished"
+}
+
+// All state changes should go through this function
+function setGameState(newState) {
+    newState(gameState);
+    render(gameState);
 }
 
 const fields = document.getElementById("formFields");
-let matchList = [];
-let currentMatchIndex = 0;
-let matches = 0
-function startTournament() {
+function setUp() {
     if (items.length < 2) {
         alert("Please add items to rank before starting the tournament.");
         return;
     }
 
-    fields.disabled = true;
+    setGameState(state => {
+        state.matches = setMatches(items);
+        state.phase = "playing";
+    });
 
-    console.log("Starting tournament with items:", items);
-    // Further implementation for round-robin ranking goes here
+    fields.disabled = true; // Move this to render function later
+}
 
-    matches = items.length * (items.length - 1) / 2;
-    console.log("Total matches to be played:", matches);
+function render(state) {
+    const matchListElement = document.getElementById("matchList");
+    matchListElement.innerHTML = "";
 
-    matchList = setMatches(items); // Make this
-    console.log("Match List:", matchList);
+    if (state.phase === "playing") {
+        const currentMatch = state.matches[state.matchIndex];
+        const matchItem = document.createElement("li");
+        matchItem.textContent = `${currentMatch[0]} vs ${currentMatch[1]}`;
+        matchListElement.appendChild(matchItem);
+    }
 
-    displayNextMatch(); // Make this
+    document.body.dataset.phase = state.phase;
+}
+
+function incrementMatch() {
+    setGameState(state => {
+        if (state.matchIndex < state.matches.length - 1) state.matchIndex++;
+    });
+}
+
+function decrementMatch() {
+    setGameState(state => {
+        if (state.matchIndex > 0) state.matchIndex--;
+    });
+}
+
+function setMatches(items) {
+    const matchArray = []
+
+    if (items.length % 2 != 0) {
+        items.push("BYE");
+    }
+
+    for (let round = 0; round < items.length - 1; round++) {
+        for (let i = 0; i < items.length / 2; i++) {
+            const home = items[i];
+            const away = items[items.length - 1 - i];
+            if (home !== "BYE" && away !== "BYE") {
+                matchArray.push([home, away]);
+            }
+        }
+        items.splice(1, 0, items.pop());
+    }
+
+    return matchArray;
 }
 
