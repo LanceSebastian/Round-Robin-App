@@ -1,3 +1,13 @@
+/* --How to use phase-based styling-- 
+body[data-phase="setup"] .game-ui {
+  display: none;
+}
+
+body[data-phase="playing"] .game-ui {
+  display: block;
+} */
+
+
 * {
   margin: 0;
   padding: 0;
