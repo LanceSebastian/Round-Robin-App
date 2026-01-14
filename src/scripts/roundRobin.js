@@ -31,6 +31,7 @@ function addItem(text) {
 const gameState = {
     matchIndex: 0,
     matches: [],
+    score: [],
     phase: "setup" // can be "setup", "playing", "finished"
 }
 
@@ -49,23 +50,41 @@ function setUp() {
 
     setGameState(state => {
         state.matches = setMatches(items);
+        state.score = Array(state.matches.length).fill(null);
         state.phase = "playing";
     });
 
     fields.disabled = true; // Move this to render function later
 }
 
+function finish() {
+    setGameState(state => {
+        state.phase = "finished";
+    });
+
+    const counts = gameState.score.reduce((acc, x) => {
+        acc[x] = (acc[x] || 0) + 1;
+        return acc;
+    }, {});
+
+    console.log(counts);
+
+    fields.disabled = false; // Move this to render function later
+}
+
 function render(state) {
-    const matchListElement = document.getElementById("matchList");
+    const template = document.querySelector("#match-template")
+    const matchListElement = document.querySelector("#matchList");
+
+    const clone = template.content.cloneNode(true);
     matchListElement.innerHTML = "";
 
     if (state.phase === "playing") {
         const currentMatch = state.matches[state.matchIndex];
-        const matchItem = document.createElement("li");
-        matchItem.textContent = `${currentMatch[0]} vs ${currentMatch[1]}`;
-        matchListElement.appendChild(matchItem);
+        clone.querySelector(".leftName").textContent = currentMatch[0];
+        clone.querySelector(".rightName").textContent = currentMatch[1];
+        matchListElement.appendChild(clone);
     }
-
     document.body.dataset.phase = state.phase;
 }
 
@@ -78,6 +97,20 @@ function incrementMatch() {
 function decrementMatch() {
     setGameState(state => {
         if (state.matchIndex > 0) state.matchIndex--;
+    });
+}
+
+function left() { // Placeholder function
+    setGameState(state => {
+        state.score[state.matchIndex] = state.matches[state.matchIndex][0];
+        if (state.score[state.matchIndex+1] == null && state.matchIndex < state.matches.length - 1) state.matchIndex++;
+    });
+}
+
+function right() {
+    setGameState(state => {
+        state.score[state.matchIndex] = state.matches[state.matchIndex][1];
+        if (state.score[state.matchIndex+1] == null && state.matchIndex < state.matches.length - 1) state.matchIndex++;
     });
 }
 
