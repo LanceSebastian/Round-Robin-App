@@ -110,3 +110,19 @@ footer{
     left: 50%;
     transform: translateX(-50%);
 }
+
+body[data-phase="playing"] .setupButton {
+    display: none;
+}
+
+body[data-phase="setup"] .setupButton {
+    display: block;
+}
+
+body[data-phase="setup"] .gameButton {
+    display: none;
+}
+
+body[data-phase="playing"] .gameButton {
+    display: block;
+}

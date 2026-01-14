@@ -35,6 +35,12 @@ const gameState = {
     phase: "setup" // can be "setup", "playing", "finished"
 }
 
+const PHASES = {
+    SETUP: "setup",
+    PLAYING: "playing",
+    FINISHED: "finished"
+}
+
 // All state changes should go through this function
 function setGameState(newState) {
     newState(gameState);
@@ -51,7 +57,7 @@ function setUp() {
     setGameState(state => {
         state.matches = setMatches(items);
         state.score = Array(state.matches.length).fill(null);
-        state.phase = "playing";
+        state.phase = PHASES.PLAYING;
     });
 
     fields.disabled = true; // Move this to render function later
@@ -59,7 +65,7 @@ function setUp() {
 
 function finish() {
     setGameState(state => {
-        state.phase = "finished";
+        state.phase = PHASES.FINISHED;
     });
 
     const counts = gameState.score.reduce((acc, x) => {
@@ -79,7 +85,7 @@ function render(state) {
     const clone = template.content.cloneNode(true);
     matchListElement.innerHTML = "";
 
-    if (state.phase === "playing") {
+    if (state.phase === PHASES.PLAYING) {
         const currentMatch = state.matches[state.matchIndex];
         const currentScore = state.score[state.matchIndex];
 
@@ -96,7 +102,13 @@ function render(state) {
         clone.querySelector(".rightName").textContent = currentMatch[1];
         matchListElement.appendChild(clone);
     }
-    document.body.dataset.phase = state.phase;
+
+    syncUI();
+}
+
+function syncUI() {
+    // Placeholder for future UI synchronization logic
+    document.body.dataset.phase = gameState.phase;
 }
 
 function incrementMatch() {
@@ -155,3 +167,4 @@ function updateMatchCounter() {
 }
 
 setInterval(updateMatchCounter, 100); // Update match counter every 100ms
+document.addEventListener("DOMContentLoaded", syncUI);
