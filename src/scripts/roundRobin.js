@@ -81,6 +81,17 @@ function render(state) {
 
     if (state.phase === "playing") {
         const currentMatch = state.matches[state.matchIndex];
+        const currentScore = state.score[state.matchIndex];
+
+        if (currentScore === currentMatch[0]) 
+            clone.querySelector(".leftPlayer").classList.add("active");
+        else if (currentScore === currentMatch[1]) 
+            clone.querySelector(".rightPlayer").classList.add("active");
+         else {
+            clone.querySelector(".leftPlayer").classList.remove("active");
+            clone.querySelector(".rightPlayer").classList.remove("active");
+        }
+        
         clone.querySelector(".leftName").textContent = currentMatch[0];
         clone.querySelector(".rightName").textContent = currentMatch[1];
         matchListElement.appendChild(clone);

@@ -98,3 +98,7 @@ footer{
     background-color: gray;
     border-radius: 16px;
 }
+
+.active {
+    background-color: lightgreen;
+}
