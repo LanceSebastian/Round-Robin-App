@@ -42,12 +42,8 @@ footer{
 
 .info-1 {
     width: 300px;
-    height: 300px;
-}
-
-.info-2 {
-    width: 300px;
-    height: 350px;
+    height: 700px;
+    position: relative;
 }
 
 .pageContent {
@@ -61,8 +57,11 @@ footer{
 .draw {
     outline: black solid;
 }
+body[data-phase="setup"] .nav-button-play {
+    display: none;
+}
 
-.nav-button-play {
+body[data-phase="playing"] .nav-button-play {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
