@@ -85,7 +85,7 @@ footer{
 .draw {
     outline: black solid;
 }
-body[data-phase="setup"] .nav-button-play {
+body[data-phase="setup"] .nav-button-play, body[data-phase="finished"] .nav-button-play {
     display: none;
 }
 
@@ -146,7 +146,7 @@ body[data-phase="setup"] .matchCounter {
     transform: translateX(-50%);
 }
 
-body[data-phase="playing"] .setupButton {
+body[data-phase="playing"] .setupButton, body[data-phase="finished"] .setupButton {
     display: none;
 }
 
@@ -166,7 +166,7 @@ body[data-phase="setup"] .setupButton:hover {
     font-size: xx-large;
 }
 
-body[data-phase="setup"] .gameButton {
+body[data-phase="setup"] .gameButton, body[data-phase="finished"] .gameButton {
     display: none;
 }
 
@@ -176,3 +176,24 @@ body[data-phase="playing"] .gameButton {
     bottom: 10px;
     right: 10px;
 }
+
+.resetButton {
+    display: none;
+    width: 300px;
+    height: 100px;
+    border-radius: 16px;
+    font-size: x-large;
+    background-color: darkred;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.resetButton:hover {
+    background-color: red;
+    font-size: xx-large;
+}
+
+body[data-phase="finished"] .resetButton {
+    display: block;
+}
+
