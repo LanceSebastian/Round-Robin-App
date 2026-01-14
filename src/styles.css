@@ -135,9 +135,9 @@ body[data-phase="playing"] .nav-button-play {
     background-color: lightgreen;
 }
 
-.bottom-centre {
+.top-centre {
     position: absolute;
-    bottom: 10px;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
 }

@@ -27,6 +27,9 @@
         <p>This is a sample web page created to demonstrate a basic HTML structure.</p>
         <div class="pageContent" class="draw pageContent">
             <div id="playArea" class="draw playArea">
+                <div class="top-centre">
+                    <p>Match <span id="matchCounter"></span> of <span id="totalMatches"></span></p>
+                </div>
                 <button class="setupButton" onclick="setUp()">Start</button>
                 <button class="gameButton" onclick="finish()">Finish</button>
                 <template id="match-template">
@@ -57,9 +60,7 @@
                 </ul>
                 <div class="nav-button-play left" onclick="decrementMatch()"><i class="fa-solid fa-arrow-left"></i></div>
                 <div class="nav-button-play right" onclick="incrementMatch()"><i class="fa-solid fa-arrow-right"></i></div>
-                <div class="bottom-centre">
-                    <p>Match <span id="matchCounter"></span> of <span id="totalMatches"></span></p>
-                </div>
+                
             </div>
             <div id="infoArea" class="infoArea">
                 <div id="info-1" class="draw info-1">
