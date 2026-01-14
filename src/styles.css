@@ -148,6 +148,18 @@ body[data-phase="playing"] .setupButton {
 
 body[data-phase="setup"] .setupButton {
     display: block;
+    width: 300px;
+    height: 100px;
+    border-radius: 16px;
+    font-size: x-large;
+    background-color: green;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+body[data-phase="setup"] .setupButton:hover {
+    background-color: lightgreen;
+    font-size: xx-large;
 }
 
 body[data-phase="setup"] .gameButton {
