@@ -96,6 +96,17 @@ function finish() {
     }
 
     console.log("all items", leaderboard);
+}
+
+function reset() {
+    setGameState(state => {
+        state.matchIndex = 0;  
+        state.matches = [];
+        state.score = [];
+        state.phase = PHASES.SETUP;
+    });
+    items.length = 0; // Clear items array
+    itemList.innerHTML = "";
     fields.disabled = false; // Move this to render function later
 }
 
