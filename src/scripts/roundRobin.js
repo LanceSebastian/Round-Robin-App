@@ -135,3 +135,12 @@ function setMatches(items) {
     return matchArray;
 }
 
+const matchCounter = document.getElementById("matchCounter");
+const totalMatches = document.getElementById("totalMatches");
+
+function updateMatchCounter() {
+    matchCounter.textContent = gameState.matchIndex + 1;
+    totalMatches.textContent = gameState.matches.length;
+}
+
+setInterval(updateMatchCounter, 100); // Update match counter every 100ms
