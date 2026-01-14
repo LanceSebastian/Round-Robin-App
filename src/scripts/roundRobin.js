@@ -7,9 +7,15 @@ form.addEventListener("submit", function(event) {
     
     const formData = new FormData(form);
     
-    const item = formData.get("itemInput");
+    const name = formData.get("itemInput");
+
+    const item = {
+        id: items.length + 1,
+        name: name
+    }
+
     items.push(item);
-    addItem(item);
+    addItem(item.name);
     
     form.reset();
     
@@ -73,7 +79,16 @@ function finish() {
         return acc;
     }, {});
 
-    console.log(counts);
+    itemList.innerHTML = "";
+
+    const freqItems = gameState.score.reduce((acc, val) => {
+        acc[val] = (acc[val] || 0) + 1;
+        return acc;
+    }, {});
+
+    const leaderboard = items.map(val => freqItems[val] || 0);
+
+    console.log(leaderboard);
 
     fields.disabled = false; // Move this to render function later
 }
