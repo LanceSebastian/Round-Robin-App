@@ -63,16 +63,10 @@
             </div>
             <div id="infoArea" class="infoArea">
                 <div id="info-1" class="draw info-1">
-                    <div class="buttonContainer">
-                        <button>Table</button>
-                        <button>Notes</button>
-                    </div>
-                </div>
-                <div id="info-2" class="draw info-2">
-                    <form id="addContent">
-                        <fieldset id="formFields">
-                            <input name="itemInput" placeholder="Enter item to rank" required>
-                            <input type="submit" value="Submit">
+                    <form id="addContent" class="addContent">
+                        <fieldset id="formFields" class="flex-row">
+                            <input name="itemInput" class="itemInput" placeholder="Enter item to rank" required>
+                            <input type="submit" class="submitButton" value="Submit">
                         </fieldset>
                     </form>
                     <template id="itemTemplate">
