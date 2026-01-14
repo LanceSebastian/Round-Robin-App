@@ -27,6 +27,7 @@ footer{
     width: 700px;
     height: 700px;
     background-color: #f9f9f9;
+    position: relative;
 }
 
 .infoArea {
@@ -56,4 +57,44 @@ footer{
 
 .draw {
     outline: black solid;
+}
+
+.nav-button-play {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.nav-button-play:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.left {
+    left: 10px;
+}
+
+.right {
+    right: 10px;
+}
+
+.match {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.player {
+    outline: black solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 300px;
+    height: 200px;
+    background-color: gray;
+    border-radius: 16px;
 }
