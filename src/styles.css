@@ -65,6 +65,7 @@ footer{
     cursor: pointer;
     position: absolute;
     top: 50%;
+    transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -101,4 +102,11 @@ footer{
 
 .active {
     background-color: lightgreen;
+}
+
+.bottom-centre {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
