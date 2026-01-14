@@ -28,11 +28,35 @@
         <div class="pageContent" class="draw pageContent">
             <div id="playArea" class="draw playArea">
                 <button onclick="setUp()">Start</button>
+                <button onclick="finish()">Finish</button>
+                <template id="match-template">
+                    <div class="match">
+                        <div class="player leftPlayer">
+                            <span class="playerName leftName"></span>
+                            <button class="winButton leftWin" onclick="left()">Choose</button>
+                        </div>
+                        <div class="player rightPlayer">
+                            <span class="playerName rightName"></span>
+                            <button class="winButton rightWin" onclick="right()">Choose</button>
+                        </div>
+                    </div>
+                </template>
+                <!-- Temp Match display -->
+                <!-- <div class="match">
+                    <div class="player leftPlayer">
+                        <span class="playerName leftName">1</span>
+                        <button class="winButton leftWin" onclick="left()">Choose</button>
+                    </div>
+                    <div class="player rightPlayer">
+                        <span class="playerName rightName">2</span>
+                        <button class="winButton rightWin" onclick="right()">Choose</button>
+                    </div>
+                </div> -->
                 <ul id="matchList">
                     <!-- Matches will be dynamically added here -->
                 </ul>
-                <div class="nav-button-play" onclick="decrementMatch()"><i class="fa-solid fa-arrow-left"></i></div>
-                <div class="nav-button-play" onclick="incrementMatch()"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="nav-button-play left" onclick="decrementMatch()"><i class="fa-solid fa-arrow-left"></i></div>
+                <div class="nav-button-play right" onclick="incrementMatch()"><i class="fa-solid fa-arrow-right"></i></div>
             </div>
             <div id="infoArea" class="infoArea">
                 <div id="info-1" class="draw info-1">
