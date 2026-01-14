@@ -135,6 +135,10 @@ body[data-phase="playing"] .nav-button-play {
     background-color: lightgreen;
 }
 
+body[data-phase="setup"] .matchCounter {
+    display: none;
+}
+
 .top-centre {
     position: absolute;
     top: 10px;
