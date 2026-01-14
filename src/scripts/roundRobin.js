@@ -10,8 +10,9 @@ form.addEventListener("submit", function(event) {
     const name = formData.get("itemInput");
 
     const item = {
-        id: items.length + 1,
-        name: name
+        id: items.length,
+        name: name,
+        score: 0
     }
 
     items.push(item);
@@ -61,7 +62,7 @@ function setUp() {
     }
 
     setGameState(state => {
-        state.matches = setMatches(items);
+        state.matches = setMatches(items).filter(match => match[0].id !== -1 && match[1].id !== -1);
         state.score = Array(state.matches.length).fill(null);
         state.phase = PHASES.PLAYING;
     });
@@ -74,22 +75,27 @@ function finish() {
         state.phase = PHASES.FINISHED;
     });
 
-    const counts = gameState.score.reduce((acc, x) => {
-        acc[x] = (acc[x] || 0) + 1;
-        return acc;
-    }, {});
-
     itemList.innerHTML = "";
 
-    const freqItems = gameState.score.reduce((acc, val) => {
-        acc[val] = (acc[val] || 0) + 1;
+    const counts = gameState.score.reduce((acc, val) => {
+        acc[val.id] = (acc[val.id] || 0) + 1;
         return acc;
     }, {});
 
-    const leaderboard = items.map(val => freqItems[val] || 0);
+    for (const [id, count] of Object.entries(counts)) {
+        const item = items.find(i => i.id == id);
+        item.score = count;
+    }
 
-    console.log(leaderboard);
+    const leaderboard = items
+        .filter(item => item.id >= 0) // Remove BYE items
+        .sort((a, b) => b.score - a.score);
 
+    for (const item of leaderboard) {
+        addItem(`${item.name} - Wins: ${item.score}`);
+    }
+
+    console.log("all items", leaderboard);
     fields.disabled = false; // Move this to render function later
 }
 
@@ -113,8 +119,8 @@ function render(state) {
             clone.querySelector(".rightPlayer").classList.remove("active");
         }
         
-        clone.querySelector(".leftName").textContent = currentMatch[0];
-        clone.querySelector(".rightName").textContent = currentMatch[1];
+        clone.querySelector(".leftName").textContent = currentMatch[0].name;
+        clone.querySelector(".rightName").textContent = currentMatch[1].name;
         matchListElement.appendChild(clone);
     }
 
@@ -156,7 +162,7 @@ function setMatches(items) {
     const matchArray = []
 
     if (items.length % 2 != 0) {
-        items.push("BYE");
+        items.push( item = { id: -1, name: "BYE", score: 0} );
     }
 
     for (let round = 0; round < items.length - 1; round++) {
