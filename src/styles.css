@@ -35,7 +35,6 @@ footer{
 
 .infoArea {
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
     height: 700px;
 }
@@ -44,6 +43,35 @@ footer{
     width: 300px;
     height: 700px;
     position: relative;
+}
+
+.addContent{
+    position: absolute;
+    bottom: 0;
+    width: 300px;
+}
+
+.addContent form{
+    display: flex;
+    width: 100%;
+    gap: 8px;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-row > .itemInput {
+    flex: 3;
+}
+
+.flex-row > .submitButton {
+    flex: 1;
+}
+
+.submitButton{
+    cursor: pointer;
 }
 
 .pageContent {
