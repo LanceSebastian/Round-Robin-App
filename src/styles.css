@@ -31,23 +31,46 @@ footer{
     height: 700px;
     background-color: #f9f9f9;
     position: relative;
+    border-radius: 16px;
 }
 
 .infoArea {
     display: flex;
     flex-direction: column;
     height: 700px;
+    gap: 16px
 }
 
 .info-1 {
     width: 300px;
     height: 700px;
     position: relative;
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.item {
+    display: block;
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+}
+
+.itemName {
+    display: inline-block;
+    font-size: x-large;
+    max-width: 15ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.details {
+    display: inline-block;
+    font-size: x-large;
+    margin-left: 8px;
 }
 
 .addContent{
-    position: absolute;
-    bottom: 0;
     width: 300px;
 }
 
@@ -70,8 +93,35 @@ footer{
     flex: 1;
 }
 
+fieldset{
+    border: none;
+    display: flex;
+    width: 100%;
+    gap: 8px;
+}
+
+.itemInput{
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.itemInput:focus {
+    outline: none;
+    border-color: black;
+}
+
 .submitButton{
+    border-radius: 8px;
+    font-size: 16px;
     cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.submitButton:hover {
+    background-color: green;
+    color: white;
 }
 
 .pageContent {

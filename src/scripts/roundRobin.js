@@ -25,12 +25,12 @@ form.addEventListener("submit", function(event) {
 
 const template = document.getElementById("itemTemplate");
 const itemList = document.getElementById("itemList");
-function addItem(text) {
+function addItem(item, details="") {
     
     const clone = template.content.cloneNode(true);
     
-    clone.querySelector(".itemName").textContent = text;
-    
+    clone.querySelector(".itemName").textContent = item;
+    clone.querySelector(".details").textContent = details;
     itemList.appendChild(clone);
     
 }
@@ -92,7 +92,7 @@ function finish() {
         .sort((a, b) => b.score - a.score);
 
     for (const item of leaderboard) {
-        addItem(`${item.name} - Wins: ${item.score}`);
+        addItem(`${item.name} `,`- Points: ${item.score}`);
     }
 
     console.log("all items", leaderboard);
