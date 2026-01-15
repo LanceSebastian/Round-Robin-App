@@ -20,5 +20,5 @@
 }
 
 .draw {
-    outline: black solid;
+    outline: var(--border) solid;
 }
