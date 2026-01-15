@@ -33,25 +33,21 @@
                 <button class="setupButton" onclick="setUp()">Start</button>
                 <template id="match-template">
                     <div class="match">
-                        <div class="player leftPlayer">
+                        <div class="player leftPlayer" onclick="left()">
                             <span class="playerName leftName"></span>
-                            <button class="winButton leftWin" onclick="left()">Choose</button>
                         </div>
-                        <div class="player rightPlayer">
+                        <div class="player rightPlayer" onclick="right()">
                             <span class="playerName rightName"></span>
-                            <button class="winButton rightWin" onclick="right()">Choose</button>
                         </div>
                     </div>
                 </template>
                 <!-- Temp Match display -->
                 <!-- <div class="match">
-                    <div class="player leftPlayer">
+                    <div class="player leftPlayer" onclick="left()">
                         <span class="playerName leftName">1</span>
-                        <button class="winButton leftWin" onclick="left()">Choose</button>
                     </div>
-                    <div class="player rightPlayer">
+                    <div class="player rightPlayer" onclick="right()">
                         <span class="playerName rightName">2</span>
-                        <button class="winButton rightWin" onclick="right()">Choose</button>
                     </div>
                 </div> -->
                 <ul id="matchList">
