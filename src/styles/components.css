@@ -148,8 +148,6 @@ body[data-phase="setup"] .matchCounter {
     display: none;
 }
 
-
-
 body[data-phase="playing"] .setupButton, body[data-phase="finished"] .setupButton {
     display: none;
 }
@@ -170,9 +168,9 @@ body[data-phase="setup"] .setupButton:hover {
     font-size: xx-large;
 }
 
-/* body[data-phase="setup"] .gameButtons {
+body[data-phase="setup"] .gameButtons {
     display: none;
-} */
+}
 
 .gameButtons {
     display: flex;
