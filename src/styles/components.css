@@ -1,0 +1,217 @@
+/* --How to use phase-based styling-- 
+body[data-phase="setup"] .game-ui {
+  display: none;
+}
+
+body[data-phase="playing"] .game-ui {
+  display: block;
+} */
+
+.playArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    height: 700px;
+    background-color: #f9f9f9;
+    position: relative;
+    border-radius: 16px;
+}
+
+.infoArea {
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+    gap: 16px
+}
+
+.info-1 {
+    width: 300px;
+    height: 700px;
+    position: relative;
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.item {
+    display: block;
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+}
+
+.itemName {
+    display: inline-block;
+    font-size: x-large;
+    max-width: 15ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.details {
+    display: inline-block;
+    font-size: x-large;
+    margin-left: 8px;
+}
+
+.addContent{
+    width: 300px;
+}
+
+.addContent form{
+    display: flex;
+    width: 100%;
+    gap: 8px;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-row > .itemInput {
+    flex: 3;
+}
+
+.flex-row > .submitButton {
+    flex: 1;
+}
+
+fieldset{
+    border: none;
+    display: flex;
+    width: 100%;
+    gap: 8px;
+}
+
+.itemInput{
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.itemInput:focus {
+    outline: none;
+    border-color: black;
+}
+
+.submitButton{
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.submitButton:hover {
+    background-color: green;
+    color: white;
+}
+
+.pageContent {
+    margin: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+body[data-phase="setup"] .nav-button-play, body[data-phase="finished"] .nav-button-play {
+    display: none;
+}
+
+body[data-phase="playing"] .nav-button-play {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.nav-button-play:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.match {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 16px;
+}
+
+.player {
+    outline: black solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 300px;
+    height: 200px;
+    background-color: gray;
+    border-radius: 16px;
+}
+
+.active {
+    background-color: lightgreen;
+}
+
+body[data-phase="setup"] .matchCounter {
+    display: none;
+}
+
+
+
+body[data-phase="playing"] .setupButton, body[data-phase="finished"] .setupButton {
+    display: none;
+}
+
+body[data-phase="setup"] .setupButton {
+    display: block;
+    width: 300px;
+    height: 100px;
+    border-radius: 16px;
+    font-size: x-large;
+    background-color: green;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+body[data-phase="setup"] .setupButton:hover {
+    background-color: lightgreen;
+    font-size: xx-large;
+}
+
+body[data-phase="setup"] .gameButton, body[data-phase="finished"] .gameButton {
+    display: none;
+}
+
+body[data-phase="playing"] .gameButton { 
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.resetButton {
+    display: none;
+    width: 300px;
+    height: 100px;
+    border-radius: 16px;
+    font-size: x-large;
+    background-color: darkred;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.resetButton:hover {
+    background-color: red;
+    font-size: xx-large;
+}
+
+body[data-phase="finished"] .resetButton {
+    display: block;
+}
+
