@@ -13,9 +13,10 @@ body[data-phase="playing"] .game-ui {
     align-items: center;
     width: 700px;
     height: 700px;
-    background-color: #f9f9f9;
+    background-color: var(--bg-light);
     position: relative;
     border-radius: 16px;
+    
 }
 
 .infoArea {
@@ -30,7 +31,9 @@ body[data-phase="playing"] .game-ui {
     height: 700px;
     position: relative;
     border-radius: 16px;
+    background-color: var(--bg-light);
     padding: 16px;
+    padding-top: 48px;
 }
 
 .item {
@@ -43,6 +46,7 @@ body[data-phase="playing"] .game-ui {
     display: inline-block;
     font-size: x-large;
     max-width: 15ch;
+    padding-right: 3px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -109,7 +113,7 @@ fieldset{
 }
 
 .pageContent {
-    margin: 64px;
+    margin: 32px;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -13,6 +13,12 @@
     transform: translateX(-50%);
 }
 
+.top-left {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
 .draw {
     outline: black solid;
 }
