@@ -1,6 +1,7 @@
 
 const form = document.getElementById("addContent");
 const items = [];
+let fileDrop = null; // Placeholder for future image handling
 
 form.addEventListener("submit", function(event) {
     event.preventDefault();
@@ -12,13 +13,15 @@ form.addEventListener("submit", function(event) {
     const item = {
         id: items.length,
         name: name,
-        score: 0
+        score: 0,
+        file: fileDrop
     }
 
     items.push(item);
     addItem(item.name);
     
     form.reset();
+    fileDrop = null; // Reset file drop placeholder
     
     console.log(items);
 })
@@ -124,7 +127,16 @@ function render(state) {
 
         
         clone.querySelector(".leftName").textContent = currentMatch[0].name;
+        if (currentMatch[0].file) {
+            const url = URL.createObjectURL(currentMatch[0].file);
+            clone.querySelector(".leftPlayer").style.backgroundImage = `url("${url}")`;
+        }
+
         clone.querySelector(".rightName").textContent = currentMatch[1].name;
+        if (currentMatch[1].file) {
+            const url = URL.createObjectURL(currentMatch[1].file);
+            clone.querySelector(".rightPlayer").style.backgroundImage = `url("${url}")`;
+        }
         matchListElement.appendChild(clone);
         
         if (currentScore === currentMatch[0]) 

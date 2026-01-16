@@ -25,10 +25,15 @@ dropzone.addEventListener("drop", e => {
     alert("Only images allowed");
     return;
   }
-
   // Preview
   const url = URL.createObjectURL(file);
+  fileDrop = file;
   preview.querySelector("img").src = url;
   preview.querySelector("p").textContent = file.name;
-  console.log("File dropped:", file);
+  console.log("File dropped:", fileDrop);
 });
+
+function resetDropzone() {
+  preview.querySelector("img").src = "";
+  preview.querySelector("p").textContent = "";
+}
