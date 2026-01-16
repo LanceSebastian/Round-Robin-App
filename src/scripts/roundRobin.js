@@ -162,14 +162,14 @@ function decrementMatch() {
 function left() { // Placeholder function
     setGameState(state => {
         state.score[state.matchIndex] = state.matches[state.matchIndex][0];
-        if (state.score[state.matchIndex+1] == null && state.matchIndex < state.matches.length - 1) state.matchIndex++;
+        if (state.score[state.matchIndex+1] == null && state.matchIndex < state.matches.length - 1) setTimeout(incrementMatch, 600);
     });
 }
 
 function right() {
     setGameState(state => {
         state.score[state.matchIndex] = state.matches[state.matchIndex][1];
-        if (state.score[state.matchIndex+1] == null && state.matchIndex < state.matches.length - 1) state.matchIndex++;
+        if (state.score[state.matchIndex+1] == null && state.matchIndex < state.matches.length - 1) setTimeout(incrementMatch, 600);
     });
 }
 
