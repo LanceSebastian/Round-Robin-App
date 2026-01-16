@@ -7,6 +7,25 @@ body[data-phase="playing"] .game-ui {
   display: block;
 } */
 
+#dropzone {
+  border: 2px dashed #999;
+  padding: 2rem;
+  text-align: center;
+}
+
+#dropzone.dragover {
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.thumbnail {
+    margin-top: 8px;
+    max-width: 100%;
+    max-height: 50px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
 .playArea {
     display: flex;
     justify-content: center;
@@ -71,6 +90,12 @@ body[data-phase="playing"] .game-ui {
 .flex-row{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row > .fileInput {
+    flex: 1;
 }
 
 .flex-row > .itemInput {
@@ -102,7 +127,8 @@ fieldset{
 
 .submitButton{
     border-radius: 8px;
-    font-size: 16px;
+    font-size: large;
+    padding: 6px;
     cursor: pointer;
     transition: all 0.1s ease;
 }

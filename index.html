@@ -24,60 +24,66 @@
     </header>
 
     <main>
-        <div class="pageContent" class="draw pageContent">
-            <div id="playArea" class="draw playArea">
-                <u class="top-left underline">Play Area</u>
-                <div class="matchCounter top-centre">
-                    <p>Match <span id="matchCounter"></span> of <span id="totalMatches"></span></p>
-                </div>
-                <button class="setupButton" onclick="setUp()">Start</button>
-                <template id="match-template">
-                    <div class="match">
-                        <div class="player leftPlayer" onclick="left()">
-                            <span class="playerName leftName"></span>
-                        </div>
-                        <div class="player rightPlayer" onclick="right()">
-                            <span class="playerName rightName"></span>
-                        </div>
+        <div id="dropzone">
+            
+            <div class="pageContent" class="draw pageContent">
+                <div id="playArea" class="draw playArea">
+                    <u class="top-left underline">Play Area</u>
+                    <div class="matchCounter top-centre">
+                        <p>Match <span id="matchCounter"></span> of <span id="totalMatches"></span></p>
                     </div>
-                </template>
-                <!-- Temp Match display -->
-                <!-- <div class="match">
-                    <div class="player leftPlayer" onclick="left()">
-                        <span class="playerName leftName">1</span>
-                    </div>
-                    <div class="player rightPlayer" onclick="right()">
-                        <span class="playerName rightName">2</span>
-                    </div>
-                </div> -->
-                <ul id="matchList">
-                    <!-- Matches will be dynamically added here -->
-                </ul>
-                <div id="gameButtons" class="gameButtons">
-                    <div class="nav-button-play left" onclick="decrementMatch()"><i class="fa-solid fa-arrow-left"></i></div>
-                    <button class="resetButton" onclick="reset()">Reset</button>
-                    <button class="gameButton" onclick="finish()">End</button>
-                    <div class="nav-button-play right" onclick="incrementMatch()"><i class="fa-solid fa-arrow-right"></i></div>
-                </div>
-                
-            </div>
-            <div id="infoArea" class="infoArea">
-                <div id="info-1" class="draw info-1">
-                    <u class="top-left">Info Area</u>
-                    <template id="itemTemplate">
-                        <div class="item">
-                            <span class="itemName"></span><span class="details itemName"></span>
+                    <button class="setupButton" onclick="setUp()">Start</button>
+                    <template id="match-template">
+                        <div class="match">
+                            <div class="player leftPlayer" onclick="left()">
+                                <span class="playerName leftName"></span>
+                            </div>
+                            <div class="player rightPlayer" onclick="right()">
+                                <span class="playerName rightName"></span>
+                            </div>
                         </div>
                     </template>
-                    <ul id="itemList"></ul>
+                    <!-- Temp Match display -->
+                    <!-- <div class="match">
+                        <div class="player leftPlayer" onclick="left()">
+                            <span class="playerName leftName">1</span>
+                        </div>
+                        <div class="player rightPlayer" onclick="right()">
+                            <span class="playerName rightName">2</span>
+                        </div>
+                    </div> -->
+                    <ul id="matchList">
+                        <!-- Matches will be dynamically added here -->
+                    </ul>
+                    <div id="gameButtons" class="gameButtons">
+                        <div class="nav-button-play left" onclick="decrementMatch()"><i class="fa-solid fa-arrow-left"></i></div>
+                        <button class="resetButton" onclick="reset()">Reset</button>
+                        <button class="gameButton" onclick="finish()">End</button>
+                        <div class="nav-button-play right" onclick="incrementMatch()"><i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+                    
                 </div>
-                <form id="addContent" class="addContent">
-                    <fieldset id="formFields" class="flex-row">
-                        <input name="itemInput" class="itemInput" placeholder="Enter item to rank" required>
-                        <input type="submit" class="submitButton" value="Submit">
-                    </fieldset>
-                </form>
-
+                <div id="infoArea" class="infoArea">
+                    <div id="info-1" class="draw info-1">
+                        <u class="top-left">Info Area</u>
+                        <template id="itemTemplate">
+                            <div class="item">
+                                <span class="itemName"></span><span class="details itemName"></span>
+                            </div>
+                        </template>
+                        <ul id="itemList"></ul>
+                    </div>
+                    <form id="addContent" class="addContent">
+                        <fieldset id="formFields" class="flex-row">
+                            <input name="itemInput" class="itemInput" placeholder="Enter item to rank" required>
+                            <input type="submit" class="submitButton" value="Submit">
+                        </fieldset>
+                        <div id="preview" class="flex-row">
+                            <img class="thumbnail" />
+                            <p></p>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </main>
@@ -87,6 +93,7 @@
     </footer>
 
     <script src="src/scripts/roundRobin.js" defer></script>
+    <script src="src/scripts/drag-drop.js" defer></script>
 
 </body>
 </html>
