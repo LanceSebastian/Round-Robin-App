@@ -178,6 +178,16 @@ fieldset{
     transform: scale(1.05);
 }
 
+.leftPlayer, .rightPlayer {
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+}
+
+.playerName {
+    font-size: 3rem;
+}
+
 body[data-phase="setup"] .matchCounter {
     display: none;
 }
