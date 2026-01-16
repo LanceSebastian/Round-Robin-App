@@ -186,14 +186,14 @@ fieldset{
 
 .playerName {
     font-size: 3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 10ch;
 }
 
 .withImage {
-    background-color: rgba(0, 0, 0, 0.2);
-    color: white;
-    border-radius: 8px;
-    padding: 4px 8px;
-    padding-right: 16px;
+    position:absolute;
+    bottom: -50px;
 }
 
 body[data-phase="setup"] .matchCounter {
