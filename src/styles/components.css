@@ -128,7 +128,7 @@ fieldset{
 }
 
 .player {
-    outline: black solid;
+    outline: var(--border) solid;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -136,12 +136,20 @@ fieldset{
     gap: 8px;
     width: 300px;
     height: 200px;
-    background-color: gray;
+    background-color: var(--bg-dark);
     border-radius: 16px;
+    transform: scale(0.95);
+    transition: all 0.2s ease;
+    cursor: pointer;
 }
 
-.active {
+.player:hover {
+    background-color: var(--primary);
+} 
+
+.player.active {
     background-color: lightgreen;
+    transform: scale(1.05);
 }
 
 body[data-phase="setup"] .matchCounter {
@@ -183,7 +191,12 @@ body[data-phase="setup"] .gameButtons {
     gap: 8px;
 }
 
+body[data-phase="finished"] .gameButton, body[data-phase="finished"] .nav-button-play{
+    display: none;
+}
+
 .resetButton, .gameButton {
+    display: inline;
     padding: 0px 20px;
     cursor: pointer;
     border-radius: 8px;
@@ -201,6 +214,7 @@ body[data-phase="setup"] .gameButtons {
 }
 
 .nav-button-play {
+    display: inline;
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 8px;
