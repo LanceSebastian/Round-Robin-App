@@ -110,29 +110,33 @@ function reset() {
     fields.disabled = false; // Move this to render function later
 }
 
+const matchListElement = document.querySelector("#matchList");
 function render(state) {
     const template = document.querySelector("#match-template")
-    const matchListElement = document.querySelector("#matchList");
 
     const clone = template.content.cloneNode(true);
+    
     matchListElement.innerHTML = "";
 
     if (state.phase === PHASES.PLAYING) {
         const currentMatch = state.matches[state.matchIndex];
         const currentScore = state.score[state.matchIndex];
 
-        if (currentScore === currentMatch[0]) 
-            clone.querySelector(".leftPlayer").classList.add("active");
-        else if (currentScore === currentMatch[1]) 
-            clone.querySelector(".rightPlayer").classList.add("active");
-         else {
-            clone.querySelector(".leftPlayer").classList.remove("active");
-            clone.querySelector(".rightPlayer").classList.remove("active");
-        }
         
         clone.querySelector(".leftName").textContent = currentMatch[0].name;
         clone.querySelector(".rightName").textContent = currentMatch[1].name;
         matchListElement.appendChild(clone);
+        
+        if (currentScore === currentMatch[0]) 
+            requestAnimationFrame(() => { matchListElement.querySelector(".leftPlayer").classList.add("active"); })
+        else if (currentScore === currentMatch[1]) 
+            requestAnimationFrame(() => { matchListElement.querySelector(".rightPlayer").classList.add("active"); })
+         else {
+            requestAnimationFrame(() => {
+                matchListElement.querySelector(".leftPlayer").classList.remove("active");
+                matchListElement.querySelector(".rightPlayer").classList.remove("active");
+            })
+        }
     }
 
     syncUI();
