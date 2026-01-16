@@ -1,6 +1,8 @@
 
 const form = document.getElementById("addContent");
 const items = [];
+const dropzone = document.getElementById("dropzone");
+const preview = document.querySelector("#preview");
 let fileDrop = null; // Placeholder for future image handling
 
 form.addEventListener("submit", function(event) {
@@ -22,7 +24,9 @@ form.addEventListener("submit", function(event) {
     
     form.reset();
     fileDrop = null; // Reset file drop placeholder
-    
+    preview.querySelector("img").src = "";
+    preview.querySelector("p").textContent = "";
+
     console.log(items);
 })
 
@@ -130,12 +134,14 @@ function render(state) {
         if (currentMatch[0].file) {
             const url = URL.createObjectURL(currentMatch[0].file);
             clone.querySelector(".leftPlayer").style.backgroundImage = `url("${url}")`;
+            clone.querySelector(".leftName").classList.add("withImage");
         }
 
         clone.querySelector(".rightName").textContent = currentMatch[1].name;
         if (currentMatch[1].file) {
             const url = URL.createObjectURL(currentMatch[1].file);
             clone.querySelector(".rightPlayer").style.backgroundImage = `url("${url}")`;
+            clone.querySelector(".rightName").classList.add("withImage");
         }
         matchListElement.appendChild(clone);
         

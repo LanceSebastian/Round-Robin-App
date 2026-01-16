@@ -1,5 +1,4 @@
-const dropzone = document.getElementById("dropzone");
-const preview = document.querySelector("#preview");
+
 
 // Required: prevent browser from opening the image
 ["dragenter", "dragover"].forEach(event => {
@@ -32,6 +31,8 @@ dropzone.addEventListener("drop", e => {
   preview.querySelector("p").textContent = file.name;
   console.log("File dropped:", fileDrop);
 });
+
+
 
 function resetDropzone() {
   preview.querySelector("img").src = "";
